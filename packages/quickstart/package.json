@@ -1,0 +1,49 @@
+{
+  "name": "quickstart",
+  "version": "1.1.0",
+  "description": "> TODO: description",
+  "author": "lezi.chen",
+  "homepage": "https://github.com/tpcucclin-classroom/js-hilezi#readme",
+  "license": "MIT",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tpcucclin-classroom/js-hilezi.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "changelog": "standard-version",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/tpcucclin-classroom/js-hilezi/issues"
+  },
+  "standard-version": {
+    "skip": {
+      "tag": true
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/!(*.d).ts?(x)": ["prettier --write", "eslint --fix", "git add"],
+    "*.html": ["prettier --write", "git add"],
+    "*.s?css": ["prettier --write", "git add"]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.6.0",
+    "@typescript-eslint/parser": "^2.6.0",
+    "eslint": "^6.6.0",
+    "eslint-plugin-jest": "^23.0.2",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.2.0",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2",
+    "standard-version": "^7.0.0",
+    "typescript": "^3.6.4"
+  }
+}

@@ -1,0 +1,5 @@
+# npm
+node_modules
+
+# TypeScript 所編譯出來的 dist 檔案
+dist

@@ -1,0 +1,69 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "react-hooks"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+  },
+  "overrides": [
+    {
+      "ecmaFeatures": {
+        "jsx": true,
+        "modules": true
+      },
+      "files": ["*.ts", "*.tsx"],
+      "parserOptions": {
+        "extraFileExtensions": [".ts", ".tsx"],
+        "project": "./tsconfig.json"
+      },
+      "rules": {
+        /**
+          interface 或 type 多行單行時候的寫法。
+
+          設定目標只要和 eslint 或 prettier 主動對齊，不要造成 IDE 靠北就好啦。
+        */
+        "@typescript-eslint/member-delimiter-style": [
+          "error",
+          {
+            "multiline": {
+              "delimiter": "none",
+              "requireLast": true
+            },
+            "singleline": {
+              "delimiter": "semi",
+              "requireLast": false
+            }
+          }
+        ],
+
+        /**
+          有時候想保有風格一致性，或是強烈提醒還有剩餘參數。故 OFF
+
+          例如
+          `(value, key, ...restArgs) => return value + [...restArgs]`
+
+          CAN safely turn off
+        */
+        "@typescript-eslint/no-unused-vars": ["off"]
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "parser": "babel-eslint",
+      "rules": {
+        "@typescript-eslint/indent": ["error", 2]
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
